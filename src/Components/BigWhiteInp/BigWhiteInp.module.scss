@@ -1,0 +1,23 @@
+.container{
+  width: 240px;
+  height: 100px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    outline: 0;
+    border: 0;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    &::placeholder{
+      font-size: 20px;
+      color: #012D32;
+    }
+  }
+}
