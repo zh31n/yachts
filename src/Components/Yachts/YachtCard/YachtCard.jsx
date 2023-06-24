@@ -1,25 +1,18 @@
 import React from "react";
 import styles from "./YachtCard.module.scss";
 
-const YachtCard = () => {
+const YachtCard = ({ img, model, name, des }) => {
   return (
     <div className={styles.main_container}>
       <div className={styles.image_container}>
-        <img
-          className={styles.img}
-          src="http://45.12.73.221:80/file?filename=1687436595891-postImg.png"
-        />
+        <img className={styles.img} src={img} />
       </div>
       <div className={styles.model_container}>
-        <p className={styles.model_text}>Моторная лодка</p>
-        <p className={styles.name_text}>Azimut</p>
+        <p className={styles.model_text}>{model}</p>
+        <p className={styles.name_text}>{name}</p>
       </div>
       <div className={styles.des_container}>
-        <p>
-          Лодка оснащена новейшими технологиями. 3 Спальных команты. 2 Кухни.
-          Удобнейший нос Лодка оснащена новейшими технологиями. 3 Спальных
-          команты. 2 Кухни. Удобнейший нос
-        </p>
+        <p>{des}</p>
       </div>
       <div className={styles.price_container}>
         <p>27000 руб/час</p>

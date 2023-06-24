@@ -1,0 +1,18 @@
+.main_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 118px;
+}
+
+.text {
+  color: #012d32;
+  font-size: 48px;
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+.answer_container {
+  width: 70%;
+}

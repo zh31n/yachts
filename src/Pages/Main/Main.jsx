@@ -2,6 +2,9 @@ import React from "react";
 import s from "./Main.module.scss";
 import BigWhiteInp from "../../Components/BigWhiteInp/BigWhiteInp.jsx";
 import GarantItem from "../../Components/GarantItem/GarantItem.jsx";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import Footer from "../../Components/Footer/Footer";
 
 const Main = props => {
   const data = [
@@ -27,6 +30,8 @@ const Main = props => {
     },
   ];
 
+  const [town, setTown] = useState("");
+
   const garantItems = data.map(i => (
     <GarantItem txt={i.txt} num={i.num} title={i.title} />
   ));
@@ -43,8 +48,14 @@ const Main = props => {
             <h3 className={s.sup}>Широкий выбор яхт для любых потребностей</h3>
             <div className={s.inp_cos}>
               <BigWhiteInp place={"Укажите страну"} />
-              <BigWhiteInp place={"Укажите город"} />
-              <button className={s.bigBtn}>Найти</button>
+              <BigWhiteInp
+                place={"Укажите город"}
+                value={town}
+                setTown={setTown}
+              />
+              <NavLink to={`/town?town=${town}`}>
+                <button className={s.bigBtn}>Найти</button>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -57,6 +68,7 @@ const Main = props => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
