@@ -61,7 +61,7 @@
 .garant {
   width: 100%;
   background-color: white;
-  height: 1100px;
+
 
   .garant_i {
     padding: 2rem 0;
@@ -92,6 +92,8 @@
     }
   }
   .garant {
+    height: auto;
+
     .garant_i {
       .title {
         font-size: 32px;
