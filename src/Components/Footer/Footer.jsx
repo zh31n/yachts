@@ -23,7 +23,7 @@ const Footer = () => {
                 </form>
             </div>
             <div className={s.about}>
-                <div className="">
+                <div style={{fontSize:'25px',fontWeight:'600'}}>
                     +7 (800)201-82-27
                 </div>
                 <div style={{display: 'flex', gap: '1rem', justifyContent: 'space-around', marginTop: '10px'}}>
