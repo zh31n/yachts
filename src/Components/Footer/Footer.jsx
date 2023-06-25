@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Footer.module.scss";
 import telegram from "../../assets/telegram.svg";
-import whatsapp from "../../assets/whatsapp.svg";
+import whatsappp from "../../assets/whatsapp.svg";
 
 const Footer = () => {
   return (
@@ -31,7 +31,7 @@ const Footer = () => {
           </a>
           <a href="">
             <img
-              src={whatsapp}
+              src={whatsappp}
               style={{ height: "40px", width: "40px" }}
               alt=""
             />
