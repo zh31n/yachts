@@ -1,0 +1,23 @@
+.inner{
+  height: 100vh;
+  background: url("./src/assets/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 2rem;
+  align-items: center;
+  span{
+    color: white;
+    font-weight: 700;
+    font-size: 64px;
+  }
+  a{
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+  }
+}

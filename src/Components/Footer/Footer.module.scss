@@ -1,21 +1,20 @@
 .main_container {
-  margin-top: 200px;
-  height: 220px;
+  //margin-top: 200px;
+  height: 250px;
   background-color: rgb(82, 82, 82);
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  gap: 1rem;
-  align-items: center;
+  justify-content: space-around;
+  gap: 5rem;
   color: white;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-top: 1rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
 }
 
 .text {
@@ -24,8 +23,7 @@ form {
 }
 
 .label_container {
-  margin-left: 20px;
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   input {
@@ -38,6 +36,17 @@ form {
     border-radius: 5px;
   }
 }
+.btn{
+  margin-top: 10px;
+  height: 40px;
+  width: 100px;
+  background: #012D32;
+  color: white;
+  font-family: 'Montserrat',sans-serif;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
 
 .about{
 
@@ -49,5 +58,16 @@ form {
     height: auto;
     justify-content: center;
     align-items: center;
+  }
+  .label_container{
+    margin-left: 0;
+  }
+  form{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .text{
+    text-align: center;
   }
 }

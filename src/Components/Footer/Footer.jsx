@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Footer.module.scss";
-import telegram from '../../assets/telegramm.svg'
+import telegram from '../../assets/telegram.svg'
 import whatsapp from '../../assets/whatsapp.svg'
 
 const Footer = () => {
@@ -19,15 +19,16 @@ const Footer = () => {
             <label>Ваше имя</label>
             <input placeholder="Ваше имя" />
           </div>
+            <button className={s.btn}>Отправить</button>
         </form>
       </div>
       <div className={s.about}>
           <div style={{display:'flex',gap:'1rem'}}>
               <a href="">
-                  <img src={telegram} style={{height:'60px',width:'60px'}} alt=""/>
+                  <img src={telegram} style={{height:'40px',width:'40px'}} alt=""/>
               </a>
               <a href="">
-                  <img src={whatsapp} style={{height:'60px',width:'60px'}} alt=""/>
+                  <img src={whatsapp} style={{height:'40px',width:'40px'}} alt=""/>
               </a>
           </div>
           <div className="">
