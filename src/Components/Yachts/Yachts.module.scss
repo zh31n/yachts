@@ -9,10 +9,11 @@
 .text_container {
   width: 100%;
   display: flex;
-  justify-content: center;
+  align-items: center;
   font-weight: 700;
   font-size: 48px;
   margin-top: 56px;
+  flex-direction: column;
 }
 
 .yachts_container {

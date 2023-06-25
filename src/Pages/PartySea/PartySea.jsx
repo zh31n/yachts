@@ -24,7 +24,9 @@ const PartySea = props => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Организация праздника в море в {town}</h3>
+            <h3 className={s.title}>
+              Организация праздника в море в городе {town}
+            </h3>
           </div>
         </div>
       </div>

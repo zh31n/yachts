@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./YachtCard.module.scss";
 import { NavLink } from "react-router-dom";
 
-const YachtCard = ({ img, model, name, des, id }) => {
+const YachtCard = ({ img, model, name, des, id, price }) => {
   return (
     <NavLink to={`/yacht/${id}`}>
       <div className={styles.main_container}>
@@ -17,7 +17,7 @@ const YachtCard = ({ img, model, name, des, id }) => {
           <p>{des}</p>
         </div>
         <div className={styles.price_container}>
-          <p>27000 руб/час</p>
+          <p>{price} руб/час</p>
         </div>
       </div>
     </NavLink>

@@ -24,7 +24,7 @@ const Photo = props => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Фотосессия в {town}</h3>
+            <h3 className={s.title}>Фотосессия в городе {town}</h3>
           </div>
         </div>
       </div>

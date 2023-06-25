@@ -49,7 +49,7 @@ const TownPage = () => {
               <div className={styles.search_i}>
                 <h3 className={styles.title}>
                   Арендуйте яхту и наслаждйтесь
-                  <br /> морским отдыхом.
+                  <br /> морским отдыхом в городе {town}
                 </h3>
                 <h3 className={styles.sup}>
                   Широкий выбор яхт для любых потребностей
@@ -72,7 +72,7 @@ const TownPage = () => {
               </div>
             </div>
           </div>
-          <Yachts yachts={yachts} />
+          <Yachts yachts={yachts} lenght={yachts.length} />
           <FAQ town={town} />
           <Footer />
         </>
