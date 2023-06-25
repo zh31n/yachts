@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
-import s from "./Fishing.module.scss";
+import s from "./Catering.module.scss";
 import BigWhiteInp from "../../Components/BigWhiteInp/BigWhiteInp.jsx";
 import {NavLink} from "react-router-dom";
 
-const Fishing = (props) => {
+const Catering = (props) => {
 
     const [town, setTown] = useState();
 
@@ -16,7 +16,7 @@ const Fishing = (props) => {
                 <div className="container">
                     <div className={s.search_i}>
                         <h3 className={s.title}>
-                            Рыбалка на яхте в {props.town}
+                            Кейтеринг в {props.town}
                         </h3>
                         <div className={s.inp_cos}>
                             <BigWhiteInp place={"Укажите страну"}/>
@@ -60,4 +60,4 @@ const Fishing = (props) => {
     );
 };
 
-export default Fishing;
+export default Catering;
