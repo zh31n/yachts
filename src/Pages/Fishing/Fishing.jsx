@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 
 const Fishing = (props) => {
 
-    const [town,setTown] = useState();
+    const [town, setTown] = useState();
 
     return (
         <>
@@ -16,12 +16,12 @@ const Fishing = (props) => {
                 <div className="container">
                     <div className={s.search_i}>
                         <h3 className={s.title}>
-                            Арендуйте яхту и наслаждйтесь
-                            <br /> морским отдыхом.
+                            Рыбалка на яхте в Сочи - круто!<br/>
+                            Но выбирай правильно яхту для этого дела
+                            морским отдыхом.
                         </h3>
-                        <h3 className={s.sup}>Широкий выбор яхт для любых потребностей</h3>
                         <div className={s.inp_cos}>
-                            <BigWhiteInp place={"Укажите страну"} />
+                            <BigWhiteInp place={"Укажите страну"}/>
                             <BigWhiteInp
                                 place={"Укажите город"}
                                 value={town}
@@ -31,6 +31,29 @@ const Fishing = (props) => {
                                 <button className={s.bigBtn}>Найти</button>
                             </NavLink>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className={s.garant}>
+                <div className="container">
+                    <div className={s.garant_i}>
+                        <h3 className={s.title}>Рыбалка</h3>
+                        <p style={{fontSize: '28px',marginTop:'20px',marginBottom:'20px'}}>
+                            Хотите поймать свое удачу на яхте? Рыбалка на яхте - это незабываеиый опыт, который
+                            обязательно стоит попробовать во время вашего в Сочи. Однако не все яхты подходят
+                            длярыбалки, поэтому при выборе яхты для рыбалки необходимо учитывать ряд факторов Когдавы
+                            арендуете яхту, то на ней
+                            обычно есть все необходимое для
+                            рыбалки: крючки, удочки и другое.
+                            специальное оборудование. Если вам
+                            хочется по ловить рыбу во время отдыха
+                            на яхте, достаточно спросить у
+                            менеджера, возможна ли такая опция на
+                            выбранной яхте. Обычно это не вызывает
+                            проблем, поскольку подавляющее.
+                            большинство яхт предоставляют такую
+                            возможность.
+                        </p>
                     </div>
                 </div>
             </div>
