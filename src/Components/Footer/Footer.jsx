@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import s from "./Footer.module.scss";
 import telegram from "../../assets/telegram.svg";
 import whatsappp from "../../assets/whatsapp.svg";
-import emailjs from "@emailjs/browser";
+
 
 const Footer = () => {
   const form = useRef();
