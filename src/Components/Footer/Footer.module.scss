@@ -15,6 +15,7 @@
 form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   input {
     margin-top: 4px;
     width: 200px;
@@ -32,8 +33,9 @@ form {
 }
 
 .label_container {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
+
   flex-direction: column;
   input {
     margin-top: 4px;

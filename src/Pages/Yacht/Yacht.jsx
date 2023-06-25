@@ -7,6 +7,7 @@ import api from "../../api";
 import { useParams } from "react-router-dom";
 import Fail from "../Fail/Fail";
 import Modal from "../../Components/Modal/Modal";
+import Footer from "../../Components/Footer/Footer";
 
 const Yacht = props => {
   const [yacht, setYacht] = useState({});
@@ -16,7 +17,7 @@ const Yacht = props => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const [vis, setVis] = useState(true);
+  const [vis, setVis] = useState(false);
 
   const { id } = useParams();
 
@@ -57,40 +58,35 @@ const Yacht = props => {
             />
           )}
           <Header town={yacht.town} />
-          <div className={"container"}>
-            <div className={s.titleY}>Информация о яхте</div>
-            <div className={s.cardY}>
-              <div className={s.cardI}>
-                <div className={s.title}>Информамция о яхте</div>
-                <div className={s.inf}>
-                  <span>Название яхты</span>
-                  <span>{yacht.spec.name}</span>
+          <div className={s.container}>
+            <div className={s.main_container}>
+              <div className={s.titleY}>Информация о яхте</div>
+              <div className={s.cardY}>
+                <div className={s.cardI}>
+                  <div className={s.title}>Информамция о яхте</div>
+                  <div className={s.inf}>
+                    <span>Название яхты</span>
+                    <span>{yacht.spec.name}</span>
+                  </div>
+                  <div className={s.inf}>
+                    <span>Пассажиров</span>
+                    <span>{yacht.spec.passenger_capacity}</span>
+                  </div>
+                  <div className={s.inf}>
+                    <span>Длина</span>
+                    <span>{yacht.spec.length} m</span>
+                  </div>
+                  <p className={s.desc}>{yacht.description}</p>
+                  <div className={s.price}>{yacht.price} руб/час</div>
+                  <div className={s.btn} onClick={sendEmail}>
+                    Забранировать
+                  </div>
                 </div>
-                <div className={s.inf}>
-                  <span>Пассажиров</span>
-                  <span>{yacht.spec.passenger_capacity}</span>
-                </div>
-                <div className={s.inf}>
-                  <span>Длина</span>
-                  <span>{yacht.spec.length} m</span>
-                </div>
-                <p className={s.desc}>{yacht.description}</p>
-                <div className={s.price}>{yacht.price} руб/час</div>
-                <div className={s.btn} onClick={sendEmail}>
-                  Забранировать
-                </div>
+                <img src={yacht.image} alt={"фото яхты"} className={s.image} />
               </div>
-              <img
-                src={yacht.image}
-                alt={"фото яхты"}
-                style={{
-                  width: "670px",
-                  height: "645px",
-                  borderRadius: "20px",
-                }}
-              />
             </div>
           </div>
+          <Footer />
         </>
       )}
     </>
