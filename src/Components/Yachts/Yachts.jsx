@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Yachts.module.scss";
 import YachtCard from "./YachtCard/YachtCard";
+import { useParams } from "react-router-dom";
 
 const Yachts = ({ yachts }) => {
   return (
@@ -12,11 +13,13 @@ const Yachts = ({ yachts }) => {
         {yachts.map(function (el, index) {
           return (
             <YachtCard
+              id={el._id}
               key={index}
               img={el.imageUrl}
               model={el.spec.model}
               des={el.description}
               name={el.spec.name}
+              price={el.price}
             />
           );
         })}
