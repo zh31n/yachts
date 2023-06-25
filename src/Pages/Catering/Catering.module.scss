@@ -45,7 +45,7 @@
   .bigBtn {
     width: 240px;
     height: 100px;
-    background-color: #012D32;
+    background-color: #012d32;
     border-radius: 10px;
     color: white;
     display: flex;
@@ -62,13 +62,12 @@
   width: 100%;
   background-color: white;
 
-
   .garant_i {
     padding: 2rem 0;
 
     .title {
       font-size: 48px;
-      color: #012D32;
+      color: #012d32;
       font-weight: 700;
       text-align: center;
       margin-bottom: 2rem;
@@ -85,7 +84,6 @@
   }
 }
 
-
 @media (max-width: 1100px) {
   .search_i {
     .title {
@@ -98,7 +96,9 @@
       .title {
         font-size: 32px;
       }
+      p {
+        font-size: 15px;
+      }
     }
   }
-
 }

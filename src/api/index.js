@@ -24,6 +24,9 @@ const api = {
   sendMailWithYacht(name, phone, yachtmodel) {
     return instance.get(`mail?name=${name}&phone=${phone}&yacht=${yachtmodel}`);
   },
+  getService(town, service) {
+    return instance.get(`services?town=${town}&name=${service}`);
+  },
 };
 
 export default api;

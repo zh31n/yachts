@@ -18,12 +18,11 @@ function App() {
       <Route path={"/town"} element={<TownPage />} />
       <Route path={"/about"} element={<About />} />
       <Route path={"/yacht/:id"} element={<Yacht />} />
-      <Route path={"/fisting"} element={<Fishing />} />
+      <Route path={"/fishing"} element={<Fishing />} />
       <Route path={"/photo"} element={<Photo />} />
       <Route path={"/party"} element={<PartySea />} />
       <Route path={"/funwater"} element={<WaterFun />} />
-      <Route path={'/catering'} element={<Catering />} />
-      <Route path={'/catering'} element={<Catering />} />
+      <Route path={"/catering"} element={<Catering />} />
       <Route path={"*"} element={<Fail />} />
     </Routes>
   );

@@ -6,6 +6,7 @@ import Tel from "../../assets/tel_icon.svg";
 
 const Header = props => {
   const [mobile, setMobile] = useState(false);
+  const [menuVis, setMenuVis] = useState(false);
   return (
     <>
       <div className={s.header}>
@@ -15,7 +16,14 @@ const Header = props => {
             <div className={s.nav}>
               <Link to={"/"}>Главная</Link>
               <Link to={`/town?town=${props.town}`}>Яхты</Link>
-              <Link to={`/`}>Услуги</Link>
+              <p
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setMenuVis(!menuVis);
+                }}
+              >
+                Услуги
+              </p>
               <Link to={`/about?town=${props.town}`}>О нас</Link>
             </div>
             <div className={s.cont}>
@@ -57,14 +65,28 @@ const Header = props => {
           >
             Яхты
           </Link>
-          <Link
-            to={`/`}
-            onClick={() => {
-              setMobile(!mobile);
-            }}
-          >
-            Услуги
-          </Link>
+          <div className={s.service_mobile}>
+            <p
+              onClick={() => {
+                setMenuVis(!menuVis);
+              }}
+            >
+              Услуги
+            </p>
+            {mobile && menuVis && (
+              <div className={s.mobile_menu}>
+                <Link to={`/catering?town=${props.town}`}>Кейтеринг</Link>
+                <Link to={`/funwater?town=${props.town}`}>
+                  Водные развлечения
+                </Link>
+                <Link to={`/photo?town=${props.town}`}>Фотосессия</Link>
+                <Link to={`/fishing?town=${props.town}`}>Рыбалка</Link>
+                <Link to={`/party?town=${props.town}`}>
+                  Организация праздника в море
+                </Link>
+              </div>
+            )}
+          </div>
           <Link
             to={`/about?town=${props.town}`}
             onClick={() => {
@@ -73,6 +95,19 @@ const Header = props => {
           >
             О нас
           </Link>
+        </div>
+      )}
+      {menuVis && !mobile && (
+        <div className={s.service_container}>
+          <div className={s.service}>
+            <Link to={`/catering?town=${props.town}`}>Кейтеринг</Link>
+            <Link to={`/funwater?town=${props.town}`}>Водные развлечения</Link>
+            <Link to={`/photo?town=${props.town}`}>Фотосессия</Link>
+            <Link to={`/fishing?town=${props.town}`}>Рыбалка</Link>
+            <Link to={`/party?town=${props.town}`}>
+              Организация праздника в море
+            </Link>
+          </div>
         </div>
       )}
     </>

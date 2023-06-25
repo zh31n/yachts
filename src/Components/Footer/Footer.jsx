@@ -24,27 +24,27 @@ const Footer = () => {
       <div className={s.form_container}>
         <form onSubmit={sendEmail}>
           <label className={s.text}>Свяжитесь и получите консультацию!</label>
-          <label>Ваш номер телефона</label>
-          <input
-            placeholder="Ваш номер"
-            type="text"
-            name="user_phone"
-            value={phone}
-            onChange={e => {
-              setPhone(e.target.value);
-            }}
-          />
-          <label>Ваше имя</label>
-          <input
-            placeholder="Ваше имя"
-            type="text"
-            name="user_name"
-            value={name}
-            onChange={e => {
-              setName(e.target.value);
-            }}
-          />
-          <button className={s.btn}>Отправить</button>
+          <div>
+            <input
+              placeholder="Ваш номер"
+              type="text"
+              name="user_phone"
+              value={phone}
+              onChange={e => {
+                setPhone(e.target.value);
+              }}
+            />
+            <input
+              placeholder="Ваше имя"
+              type="text"
+              name="user_name"
+              value={name}
+              onChange={e => {
+                setName(e.target.value);
+              }}
+            />
+            <button className={s.btn}>Отправить</button>
+          </div>
         </form>
       </div>
       <div className={s.about}>

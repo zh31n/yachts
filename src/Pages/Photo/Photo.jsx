@@ -1,63 +1,52 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header.jsx";
 import Footer from "../../Components/Footer/Footer.jsx";
 import s from "./Photo.module.scss";
 import BigWhiteInp from "../../Components/BigWhiteInp/BigWhiteInp.jsx";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import api from "../../api/index.js";
+import useQuery from "../../hooks/useQuery.js";
 
-const Photo = (props) => {
+const Photo = props => {
+  const town = useQuery("town");
 
-    const [town, setTown] = useState();
+  const [info, setInfo] = useState({});
 
-    return (
-        <>
-            <Header/>
-            <div className={s.search}>
-                <div className="container">
-                    <div className={s.search_i}>
-                        <h3 className={s.title}>
-                            Фотосессия в {props.town}
-                        </h3>
-                        <div className={s.inp_cos}>
-                            <BigWhiteInp place={"Укажите страну"}/>
-                            <BigWhiteInp
-                                place={"Укажите город"}
-                                value={town}
-                                setTown={setTown}
-                            />
-                            <NavLink to={`/town?town=${town}`}>
-                                <button className={s.bigBtn}>Найти</button>
-                            </NavLink>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className={s.garant}>
-                <div className="container">
-                    <div className={s.garant_i}>
-                        <h3 className={s.title}>Рыбалка</h3>
-                        <p style={{fontSize: '28px',marginTop:'20px',marginBottom:'20px'}}>
-                            Хотите поймать свое удачу на яхте? Рыбалка на яхте - это незабываеиый опыт, который
-                            обязательно стоит попробовать во время вашего в Сочи. Однако не все яхты подходят
-                            длярыбалки, поэтому при выборе яхты для рыбалки необходимо учитывать ряд факторов Когдавы
-                            арендуете яхту, то на ней
-                            обычно есть все необходимое для
-                            рыбалки: крючки, удочки и другое.
-                            специальное оборудование. Если вам
-                            хочется по ловить рыбу во время отдыха
-                            на яхте, достаточно спросить у
-                            менеджера, возможна ли такая опция на
-                            выбранной яхте. Обычно это не вызывает
-                            проблем, поскольку подавляющее.
-                            большинство яхт предоставляют такую
-                            возможность.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <Footer/>
-        </>
-    );
+  useEffect(() => {
+    api.getService(town, "Водные развлечения").then(res => {
+      setInfo(res.data);
+    });
+  }, []);
+
+  return (
+    <>
+      <Header town={town} />
+      <div className={s.search}>
+        <div className="container">
+          <div className={s.search_i}>
+            <h3 className={s.title}>Фотосессия в {town}</h3>
+          </div>
+        </div>
+      </div>
+      <div className={s.garant}>
+        <div className="container">
+          <div className={s.garant_i}>
+            <h3 className={s.title}>{info.name}</h3>
+            <p
+              style={{
+                fontSize: "28px",
+                marginTop: "20px",
+                marginBottom: "20px",
+              }}
+            >
+              {info.des}
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Photo;

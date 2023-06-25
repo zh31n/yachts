@@ -4,27 +4,41 @@
   background-color: rgb(82, 82, 82);
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   gap: 5rem;
   color: white;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
+  align-items: center;
 }
 
 form {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 10px;
-  input {
-    margin-top: 4px;
-    width: 200px;
-    height: 20px;
-    padding-left: 5px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input {
+      margin-top: 4px;
+      width: 200px;
+      height: 25px;
+      padding-left: 5px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
   }
+}
+
+.form_cont {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text {
