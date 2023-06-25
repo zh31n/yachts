@@ -1,33 +1,22 @@
 import React from "react";
-import "./Loader.scss";
+import styles from "./Loader.module.scss";
 
 const Loader = () => {
   return (
-    <div id="container">
-      <div class="divider" aria-hidden="true"></div>
-      <p class="loading-text" aria-label="Loading">
-        <span class="letter" aria-hidden="true">
-          L
-        </span>
-        <span class="letter" aria-hidden="true">
-          o
-        </span>
-        <span class="letter" aria-hidden="true">
-          a
-        </span>
-        <span class="letter" aria-hidden="true">
-          d
-        </span>
-        <span class="letter" aria-hidden="true">
-          i
-        </span>
-        <span class="letter" aria-hidden="true">
-          n
-        </span>
-        <span class="letter" aria-hidden="true">
-          g
-        </span>
-      </p>
+    <div className={styles.div}>
+      <span className={styles.span}>↓</span>
+      <span className={styles.span} style={{ animationDelay: "0.1s" }}>
+        ↓
+      </span>
+      <span className={styles.span} style={{ animationDelay: "0.3s" }}>
+        ↓
+      </span>
+      <span className={styles.span} style={{ animationDelay: "0.4s" }}>
+        ↓
+      </span>
+      <span className={styles.span} style={{ animationDelay: "0.5s" }}>
+        ↓
+      </span>
     </div>
   );
 };

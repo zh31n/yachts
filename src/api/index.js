@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://45.130.42.157:4000/api/",
+  baseURL: "http://45.130.42.157:4001/api/",
 });
 
 const api = {
@@ -11,6 +11,9 @@ const api = {
   },
   getAbout(town) {
     return instance.get(`about?town=${town}`);
+  },
+  getYachtInfo(id) {
+    return instance.get(`yachts/id?id=${id}`);
   },
 };
 

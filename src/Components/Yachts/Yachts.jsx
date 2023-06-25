@@ -13,7 +13,8 @@ const Yachts = ({ yachts }) => {
           return (
             <YachtCard
               key={index}
-              img={el.imageUrl}
+              id={el._id}
+              img={el.image}
               model={el.spec.model}
               des={el.description}
               name={el.spec.name}
