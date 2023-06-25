@@ -18,6 +18,12 @@ const api = {
   getFAQ(town) {
     return instance.get(`faq?town=${town}`);
   },
+  sendMailWithOutYacht(name, phone) {
+    return instance.get(`mail?name=${name}&phone=${phone}`);
+  },
+  sendMailWithYacht(name, phone, yachtmodel) {
+    return instance.get(`mail?name=${name}&phone=${phone}&yacht=${yachtmodel}`);
+  },
 };
 
 export default api;

@@ -15,7 +15,15 @@ const TownPage = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  // сonst sendEmail
+  const sendEmail = () => {
+    api.sendMailWithOutYacht(name, phone).then(res => {
+      if (res.data.status) {
+        setPhone("");
+        setName("");
+        alert("Успешно");
+      }
+    });
+  };
 
   useEffect(() => {
     api.AllYachts(town).then(data => {
@@ -47,12 +55,7 @@ const TownPage = () => {
                 value={phone}
                 setTown={setPhone}
               />
-              <button
-                className={styles.bigBtn}
-                onClick={() => {
-                  alert(town);
-                }}
-              >
+              <button className={styles.bigBtn} onClick={sendEmail}>
                 Забронировать
               </button>
             </div>

@@ -6,17 +6,22 @@ import Loader from "../../Components/Loader/Loader";
 import api from "../../api";
 import { useParams } from "react-router-dom";
 import Fail from "../Fail/Fail";
+import Modal from "../../Components/Modal/Modal";
 
 const Yacht = props => {
   const [yacht, setYacht] = useState({});
   const [loader, setLoader] = useState(true);
   const [fail, setFail] = useState(false);
 
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const [vis, setVis] = useState(true);
+
   const { id } = useParams();
 
   useEffect(() => {
     api.getYachtInfo(id).then(res => {
-      console.log(res.data);
       if (res.data.message) {
         setLoader(false);
         setFail(true);
@@ -26,6 +31,10 @@ const Yacht = props => {
       }
     });
   }, []);
+
+  const sendEmail = () => {
+    setVis(true);
+  };
 
   if (loader) {
     return <Loader />;
@@ -37,6 +46,16 @@ const Yacht = props => {
         <Fail />
       ) : (
         <>
+          {vis && (
+            <Modal
+              setVis={setVis}
+              name={name}
+              phone={phone}
+              setName={setName}
+              setPhone={setPhone}
+              yacht={yacht.spec.name + ` ` + yacht.spec.model}
+            />
+          )}
           <Header town={yacht.town} />
           <div className={"container"}>
             <div className={s.titleY}>Информация о яхте</div>
@@ -53,11 +72,13 @@ const Yacht = props => {
                 </div>
                 <div className={s.inf}>
                   <span>Длина</span>
-                  <span>{yacht.spec.lenght}m</span>
+                  <span>{yacht.spec.length} m</span>
                 </div>
                 <p className={s.desc}>{yacht.description}</p>
                 <div className={s.price}>{yacht.price} руб/час</div>
-                <div className={s.btn}>Забранировать</div>
+                <div className={s.btn} onClick={sendEmail}>
+                  Забранировать
+                </div>
               </div>
               <img
                 src={yacht.image}
