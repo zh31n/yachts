@@ -15,6 +15,15 @@
 form {
   display: flex;
   flex-direction: column;
+  input {
+    margin-top: 4px;
+    width: 200px;
+    height: 20px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
 }
 
 .text {
@@ -36,38 +45,37 @@ form {
     border-radius: 5px;
   }
 }
-.btn{
+.btn {
   margin-top: 10px;
   height: 40px;
   width: 100px;
-  background: #012D32;
+  background: #012d32;
   color: white;
-  font-family: 'Montserrat',sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: 0;
   border-radius: 12px;
   cursor: pointer;
 }
 
-.about{
-
+.about {
 }
 
-@media (max-width: 1100px){
-  .main_container{
+@media (max-width: 1100px) {
+  .main_container {
     flex-wrap: wrap;
     height: auto;
     justify-content: center;
     align-items: center;
   }
-  .label_container{
+  .label_container {
     margin-left: 0;
   }
-  form{
+  form {
     margin: 0;
     justify-content: center;
     align-items: center;
   }
-  .text{
+  .text {
     text-align: center;
   }
 }

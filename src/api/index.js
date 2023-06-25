@@ -15,6 +15,9 @@ const api = {
   getYachtInfo(id) {
     return instance.get(`yachts/id?id=${id}`);
   },
+  getFAQ(town) {
+    return instance.get(`faq?town=${town}`);
+  },
 };
 
 export default api;

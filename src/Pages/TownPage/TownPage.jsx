@@ -12,6 +12,10 @@ const TownPage = () => {
   const town = useQuery("town");
 
   const [yachts, setYachts] = useState([]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  // сonst sendEmail
 
   useEffect(() => {
     api.AllYachts(town).then(data => {
@@ -33,22 +37,30 @@ const TownPage = () => {
               Широкий выбор яхт для любых потребностей
             </h3>
             <div className={styles.inp_cos}>
-              <BigWhiteInp place={"Укажите имя"} />
-              <BigWhiteInp place={"Ваш телефон"} />
+              <BigWhiteInp
+                place={"Укажите имя"}
+                value={name}
+                setTown={setName}
+              />
+              <BigWhiteInp
+                place={"Ваш телефон"}
+                value={phone}
+                setTown={setPhone}
+              />
               <button
                 className={styles.bigBtn}
                 onClick={() => {
                   alert(town);
                 }}
               >
-                Найти
+                Забронировать
               </button>
             </div>
           </div>
         </div>
       </div>
       <Yachts yachts={yachts} />
-      <FAQ />
+      <FAQ town={town} />
       <Footer />
     </>
   );
