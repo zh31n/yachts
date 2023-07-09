@@ -111,8 +111,62 @@ const Yacht = props => {
               <div className={s.info_container}>
                 <p className={s.main_cont_text}>Информация о яхте</p>
                 <div className={s.spec_info}>
-                  <div></div>
-                  <div></div>
+                  <div className={s.container_info}>
+                    <div>
+                      <p>Модель</p>
+                      <p>{yacht.spec.model}</p>
+                    </div>
+                    <div>
+                      <p>Название</p>
+                      <p>{yacht.spec.name}</p>
+                    </div>
+                    <div>
+                      <p>Класс</p>
+                      <p>{yacht.spec.class}</p>
+                    </div>
+                    <div>
+                      <p>Производитель</p>
+                      <p>{yacht.spec.manufacturer}</p>
+                    </div>
+                    <div>
+                      <p>Верфь</p>
+                      <p>{yacht.spec.shipyard}</p>
+                    </div>
+                    <div>
+                      <p>Год постройка</p>
+                      <p>{yacht.spec.year}</p>
+                    </div>
+                  </div>
+                  <div className={s.container_info}>
+                    <div>
+                      <p>Двигатель</p>
+                      <p>{yacht.spec.engine}</p>
+                    </div>
+                    <div>
+                      <p>Длина</p>
+                      <p>{yacht.spec.width}</p>
+                    </div>
+                    <div>
+                      <p>Ширина</p>
+                      <p>{yacht.spec.length}</p>
+                    </div>
+                    <div>
+                      <p>Осадка</p>
+                      <p>{yacht.spec.draught}</p>
+                    </div>
+                    <div>
+                      <p>Скорость</p>
+                      <p>{yacht.spec.spead}</p>
+                    </div>
+                    <div>
+                      <p>Количество кают</p>
+                      <p>{yacht.spec.number_of_cabins}</p>
+                    </div>
+                    <div>
+                      <p>Пассажировместимость</p>
+                      <p>{yacht.spec.passenger_capacity}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4001/api/",
+  baseURL: "http://45.130.42.157:4001/api/",
 });
 
 const api = {
