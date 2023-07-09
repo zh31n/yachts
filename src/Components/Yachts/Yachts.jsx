@@ -3,16 +3,31 @@ import styles from "./Yachts.module.scss";
 import YachtCard from "./YachtCard/YachtCard";
 import img from "../../assets/filter.svg";
 import Filter from "../Filter/Filter";
+import api from "../../api";
 
-const Yachts = ({ yachts, lenght }) => {
+const Yachts = ({ town }) => {
   const [fileterVis, setFilterVis] = useState(true);
-
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPass, setMinPass] = useState(0);
   const [maxPass, setMaxPass] = useState(0);
-  const [type, setType] = useState([]);
   const [currentType, setCurrentType] = useState("");
+  const [yachts, setYachts] = useState([]);
+
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    if (counter == 0) {
+      console.log("effect");
+      api.AllYachts(town).then(data => {
+        if (data.data.message) {
+          props.setFail(true);
+        }
+        setYachts(data.data);
+      });
+      setCounter(1);
+    }
+  });
 
   return (
     <div className={styles.main_container}>
@@ -33,7 +48,7 @@ const Yachts = ({ yachts, lenght }) => {
                 console.log(filteredYachts, yachts);
               }}
             >
-              Найдено: {lenght}
+              Найдено: {yachts.length}
             </p>
           </div>
           <div>
@@ -52,11 +67,11 @@ const Yachts = ({ yachts, lenght }) => {
                 minPass={minPass}
                 maxPass={maxPass}
                 setMaxPass={setMaxPass}
-                type={type}
-                setType={setType}
                 currentType={currentType}
                 setCurrentType={setCurrentType}
                 yachts={yachts}
+                setYachtsArray={setYachts}
+                town={town}
               />
             )}
           </div>

@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Fail from "../Fail/Fail";
 import Modal from "../../Components/Modal/Modal";
 import Footer from "../../Components/Footer/Footer";
+import Carucel from "./Carucel/Carucel";
 
 const Yacht = props => {
   const [yacht, setYacht] = useState({});
@@ -34,7 +35,10 @@ const Yacht = props => {
   }, []);
 
   const sendEmail = () => {
-    setVis(true);
+    api.sendMailWithYacht(name, phone, yacht.spec.name).then(() => {
+      setName("");
+      setPhone("");
+    });
   };
 
   if (loader) {
@@ -60,29 +64,56 @@ const Yacht = props => {
           <Header town={yacht.town} />
           <div className={s.container}>
             <div className={s.main_container}>
-              <div className={s.titleY}>Информация о яхте</div>
-              <div className={s.cardY}>
-                <div className={s.cardI}>
-                  <div className={s.title}>Информамция о яхте</div>
-                  <div className={s.inf}>
-                    <span>Название яхты</span>
-                    <span>{yacht.spec.name}</span>
-                  </div>
-                  <div className={s.inf}>
-                    <span>Пассажиров</span>
-                    <span>{yacht.spec.passenger_capacity}</span>
-                  </div>
-                  <div className={s.inf}>
-                    <span>Длина</span>
-                    <span>{yacht.spec.length} m</span>
-                  </div>
-                  <p className={s.desc}>{yacht.description}</p>
-                  <div className={s.price}>{yacht.price} руб/час</div>
-                  <div className={s.btn} onClick={sendEmail}>
-                    Забранировать
-                  </div>
+              <p className={s.text}>Информация о яхте</p>
+              {/* <div className={s.btn} onClick={sendEmail}>
+                Забронировать
+              </div> */}
+              <div className={s.photo_container}>
+                <Carucel>
+                  {yacht.image.map(function (el, index) {
+                    return (
+                      <img
+                        src={el}
+                        alt={"фото яхты"}
+                        className={s.image}
+                        key={index}
+                      />
+                    );
+                  })}
+                </Carucel>
+                <div className={s.form}>
+                  <p className={s.form_text}>Запоните поля ниже</p>
+                  <p className={s.main_text}>Оставить заявку</p>
+                  <input
+                    className={s.input}
+                    value={name}
+                    onChange={e => {
+                      setName(e.target.value);
+                    }}
+                    placeholder="Имя*"
+                  />
+                  <input
+                    className={s.input}
+                    value={phone}
+                    onChange={e => {
+                      setPhone(e.target.value);
+                    }}
+                    placeholder="Номер телефона*"
+                  />
+                  <p className={s.price}>{yacht.price} руб/час</p>
+                  <button>Забронировать</button>
                 </div>
-                <img src={yacht.image} alt={"фото яхты"} className={s.image} />
+              </div>
+              <div className={s.description_container}>
+                <p className={s.text}>Описание яхты</p>
+                <p className={s.des_text}>{yacht.description}</p>
+              </div>
+              <div className={s.info_container}>
+                <p className={s.main_cont_text}>Информация о яхте</p>
+                <div className={s.spec_info}>
+                  <div></div>
+                  <div></div>
+                </div>
               </div>
             </div>
           </div>

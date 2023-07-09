@@ -28,15 +28,6 @@ const TownPage = () => {
     });
   };
 
-  useEffect(() => {
-    api.AllYachts(town).then(data => {
-      if (data.data.message) {
-        setFail(true);
-      }
-      setYachts(data.data);
-    });
-  });
-
   return (
     <>
       {fail ? (
@@ -72,7 +63,7 @@ const TownPage = () => {
               </div>
             </div>
           </div>
-          <Yachts yachts={yachts} lenght={yachts.length} />
+          <Yachts town={town} setFail={setFail} />
           <FAQ town={town} />
           <Footer />
         </>

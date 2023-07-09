@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Filter.module.scss";
+import api from "../../api";
 
 const Filter = ({
   minPrice,
@@ -10,20 +11,27 @@ const Filter = ({
   minPass,
   maxPass,
   setMaxPass,
-  type,
-  setType,
   setCurrentType,
   yachts,
+  setYachtsArray,
+  currentType,
+  town,
 }) => {
-  // function setTypes() {
-  //   const types = [];
-  //   yachts.map(function (el) {
-  //     types.push(el.spec.class);
-  //   });
-  //   setType([...types]);
-  // }
+  const [type, setType] = useState([]);
+  useEffect(() => {
+    yachts.map(function (el, index) {
+      setType(data => [...data, el.spec.class]);
+    });
+  }, []);
 
-  // // setTypes();
+  const handleClick = () => {
+    api
+      .filteredYachts(maxPass, maxPrice, minPrice, minPass, currentType, town)
+      .then(data => {
+        console.log(data.data);
+        setYachtsArray(data.data);
+      });
+  };
 
   return (
     <div className={styles.filter_container}>
@@ -84,7 +92,19 @@ const Filter = ({
             return <option>{el}</option>;
           })}
         </select>
-        <button className={styles.button}>Применить</button>
+        <button className={styles.button} onClick={handleClick}>
+          Применить
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            api.AllYachts(town).then(data => {
+              setYachtsArray(data.data);
+            });
+          }}
+        >
+          Сбросить
+        </button>
       </div>
     </div>
   );
