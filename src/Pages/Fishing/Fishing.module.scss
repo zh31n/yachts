@@ -100,9 +100,13 @@
 }
 
 @media (max-width: 1100px) {
+  .search{
+    background: url("./src/assets/f2.jpg");
+    height: 750px;
+  }
   .search_i {
     .title {
-      font-size: 40px;
+      font-size: 35px;
     }
   }
   .garant {
