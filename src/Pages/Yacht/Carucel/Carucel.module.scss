@@ -1,0 +1,44 @@
+.main_container {
+  height: 645px;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.all_pages {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.arrow {
+  position: absolute;
+}
+
+.arrow_mobile {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .main_container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    height: 300px;
+  }
+  .arrow {
+    display: none;
+  }
+  .arrow_mobile {
+    display: flex;
+    position: absolute;
+  }
+}
