@@ -41,6 +41,7 @@ const Photo = props => {
             >
               {info.des}
             </p>
+            <img src={info.imageUrl} />
           </div>
         </div>
       </div>

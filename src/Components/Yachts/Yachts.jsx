@@ -6,7 +6,7 @@ import Filter from "../Filter/Filter";
 import api from "../../api";
 
 const Yachts = ({ town }) => {
-  const [fileterVis, setFilterVis] = useState(true);
+  const [fileterVis, setFilterVis] = useState(false);
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPass, setMinPass] = useState(0);

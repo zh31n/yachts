@@ -7,7 +7,7 @@ const YachtCard = ({ img, model, name, des, id, price }) => {
     <NavLink to={`/yacht/${id}`}>
       <div className={styles.main_container}>
         <div className={styles.image_container}>
-          <img className={styles.img} src={img} />
+          <img className={styles.img} src={img[0]} />
         </div>
         <div className={styles.model_container}>
           <p className={styles.model_text}>{model}</p>

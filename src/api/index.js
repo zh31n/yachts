@@ -32,6 +32,9 @@ const api = {
       `yachts/filter?maxPrice=${maxPrice}&minPrice=${minPrice}&maxPass=${maxPass}&minPass=${minPass}&type=${type}&town=${town}`
     );
   },
+  getCatering(town) {
+    return instance.get(`/services/catering?town=${town}`);
+  },
 };
 
 export default api;

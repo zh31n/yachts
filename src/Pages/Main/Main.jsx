@@ -53,7 +53,7 @@ const Main = props => {
                 value={town}
                 setTown={setTown}
               />
-              <NavLink to={`/town?town=${town}`}>
+              <NavLink to={`/town?town=${town.toLowerCase()}`}>
                 <button className={s.bigBtn}>Найти</button>
               </NavLink>
             </div>

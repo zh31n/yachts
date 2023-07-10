@@ -6,15 +6,16 @@ import BigWhiteInp from "../../Components/BigWhiteInp/BigWhiteInp.jsx";
 import { NavLink } from "react-router-dom";
 import useQuery from "../../hooks/useQuery.js";
 import api from "../../api/index.js";
+import Carucel from "./Carucel/Carucel.jsx";
 
 const Catering = props => {
   const town = useQuery("town");
 
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    api.getService(town, "Кейтеринг").then(res => {
-      setInfo(res.data);
+    api.getCatering(town).then(res => {
+      setInfo(res.data.pages);
     });
   }, []);
 
@@ -30,18 +31,28 @@ const Catering = props => {
       </div>
       <div className={s.garant}>
         <div className="container">
-          <div className={s.garant_i}>
-            <h3 className={s.title}>{info.name}</h3>
-            <p
-              style={{
-                fontSize: "25px",
-                marginTop: "20px",
-                marginBottom: "20px",
-              }}
-            >
-              {info.des}
-            </p>
-          </div>
+          {info.map(function (el, index) {
+            return (
+              <div className={s.garant_i} key={index}>
+                <h3 className={s.title}>{el.title}</h3>
+                <Carucel>
+                  {el.image.map(function (el) {
+                    console.log(el.urlfile);
+                    return <img src={el.urlfile} />;
+                  })}
+                </Carucel>
+                <p
+                  style={{
+                    fontSize: "25px",
+                    marginTop: "20px",
+                    marginBottom: "20px",
+                  }}
+                >
+                  {el.des}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
       <Footer />

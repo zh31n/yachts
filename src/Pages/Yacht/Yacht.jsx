@@ -16,7 +16,7 @@ const Yacht = props => {
   const [fail, setFail] = useState(false);
 
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+");
 
   const [vis, setVis] = useState(false);
 
@@ -29,16 +29,19 @@ const Yacht = props => {
         setFail(true);
       } else {
         setYacht(res.data);
+        console.log(res.data);
         setLoader(false);
       }
     });
   }, []);
 
   const sendEmail = () => {
-    api.sendMailWithYacht(name, phone, yacht.spec.name).then(() => {
-      setName("");
-      setPhone("");
-    });
+    if (name) {
+      api.sendMailWithYacht(name, phone, yacht.spec.name).then(() => {
+        setName("");
+        setPhone("");
+      });
+    }
   };
 
   if (loader) {
@@ -70,7 +73,7 @@ const Yacht = props => {
               </div> */}
               <div className={s.photo_container}>
                 <Carucel>
-                  {yacht.image.map(function (el, index) {
+                  {yacht.image[0].map(function (el, index) {
                     return (
                       <img
                         src={el}
@@ -101,7 +104,7 @@ const Yacht = props => {
                     placeholder="Номер телефона*"
                   />
                   <p className={s.price}>{yacht.price} руб/час</p>
-                  <button>Забронировать</button>
+                  <button onClick={sendEmail}>Забронировать</button>
                 </div>
               </div>
               <div className={s.description_container}>

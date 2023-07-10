@@ -33,6 +33,7 @@ const Fishing = props => {
           <div className={s.garant_i}>
             <h3 className={s.title}>{info.name}</h3>
             <p className={s.text}>{info.des}</p>
+            <img src={info.imageUrl} />
           </div>
         </div>
       </div>
