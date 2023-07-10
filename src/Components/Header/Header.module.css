@@ -113,13 +113,29 @@
   font-size: 20px;
 }
 
+.text {
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .header {
     justify-content: flex-end;
   }
   .h_i {
-    width: 55%;
+    width: 98%;
     float: right;
+  }
+  .text {
+    display: block;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
   }
   .nav {
     display: none;

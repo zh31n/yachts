@@ -28,11 +28,10 @@
 
 @media (max-width: 1000px) {
   .main_container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     width: 350px;
     height: 300px;
+    display: flex;
+    align-items: center;
   }
   .arrow {
     display: none;

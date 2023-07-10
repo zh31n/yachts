@@ -34,7 +34,9 @@ const Catering = props => {
           {info.map(function (el, index) {
             return (
               <div className={s.garant_i} key={index}>
-                <h3 className={s.title}>{el.title}</h3>
+                <div style={{ width: "80%", textAlign: "center" }}>
+                  <h3 className={s.title}>{el.title}</h3>
+                </div>
                 <Carucel>
                   {el.image.map(function (el) {
                     console.log(el.urlfile);
@@ -44,7 +46,7 @@ const Catering = props => {
                 <p
                   style={{
                     fontSize: "25px",
-                    marginTop: "20px",
+                    marginTop: "40px",
                     marginBottom: "20px",
                   }}
                 >
