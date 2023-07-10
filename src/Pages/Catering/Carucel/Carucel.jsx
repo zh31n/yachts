@@ -58,8 +58,9 @@ const Carucel = ({ children, lenght }) => {
           sx={{
             color: "#333",
             fontSize: 30,
+            marginTop: "-30px",
             cursor: "pointer",
-            marginLeft: "-25px",
+            transform: "rotate(90deg)",
           }}
         />
       </div>
@@ -89,9 +90,10 @@ const Carucel = ({ children, lenght }) => {
           onClick={handleRight}
           sx={{
             color: "#333",
+            marginTop: "300px",
             fontSize: 30,
             cursor: "pointer",
-            marginLeft: "345px",
+            transform: "rotate(90deg)",
           }}
         />
       </div>
