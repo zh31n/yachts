@@ -11,6 +11,18 @@ const Fishing = props => {
   const town = useQuery("town");
 
   const [info, setInfo] = useState({});
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const sendEmail = () => {
+    api.sendMailWithOutYacht(name, phone).then(res => {
+      if (res.data.status) {
+        setPhone("");
+        setName("");
+        alert("Успешно");
+      }
+    });
+  };
 
   useEffect(() => {
     api.getService(town, "Рыбалка").then(res => {
@@ -25,6 +37,21 @@ const Fishing = props => {
         <div className="container">
           <div className={s.search_i}>
             <h3 className={s.title}>Рыбалка на яхте в городе {town}</h3>
+            <div className={s.inp_cos}>
+              <BigWhiteInp
+                place={"Укажите имя"}
+                value={name}
+                setTown={setName}
+              />
+              <BigWhiteInp
+                place={"Ваш телефон"}
+                value={phone}
+                setTown={setPhone}
+              />
+              <button className={s.bigBtn} onClick={sendEmail}>
+                Забронировать
+              </button>
+            </div>
           </div>
         </div>
       </div>

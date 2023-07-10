@@ -8,10 +8,22 @@ import useQuery from "../../hooks/useQuery.js";
 import api from "../../api/index.js";
 import Carucel from "./Carucel/Carucel.jsx";
 
-const Catering = props => {
+const Catering = () => {
   const town = useQuery("town");
 
   const [info, setInfo] = useState([]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const sendEmail = () => {
+    api.sendMailWithOutYacht(name, phone).then(res => {
+      if (res.data.status) {
+        setPhone("");
+        setName("");
+        alert("Успешно");
+      }
+    });
+  };
 
   useEffect(() => {
     api.getCatering(town).then(res => {
@@ -26,6 +38,21 @@ const Catering = props => {
         <div className="container">
           <div className={s.search_i}>
             <h3 className={s.title}>Кейтеринг в городе {town}</h3>
+            <div className={s.inp_cos}>
+              <BigWhiteInp
+                place={"Укажите имя"}
+                value={name}
+                setTown={setName}
+              />
+              <BigWhiteInp
+                place={"Ваш телефон"}
+                value={phone}
+                setTown={setPhone}
+              />
+              <button className={s.bigBtn} onClick={sendEmail}>
+                Забронировать
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -34,7 +61,9 @@ const Catering = props => {
           {info.map(function (el, index) {
             return (
               <div className={s.garant_i} key={index}>
-                <h3 className={s.title}>{el.title}</h3>
+                <div style={{ width: "80%", textAlign: "center" }}>
+                  <h3 className={s.title}>{el.title}</h3>
+                </div>
                 <Carucel>
                   {el.image.map(function (el) {
                     console.log(el.urlfile);
@@ -44,7 +73,7 @@ const Catering = props => {
                 <p
                   style={{
                     fontSize: "25px",
-                    marginTop: "20px",
+                    marginTop: "40px",
                     marginBottom: "20px",
                   }}
                 >

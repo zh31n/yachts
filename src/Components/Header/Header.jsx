@@ -12,7 +12,10 @@ const Header = props => {
       <div className={s.header}>
         <div className={"container"}>
           <div className={s.h_i}>
-            <img className={s.logo} src={Logo} alt={"logo"} />
+            <div className={s.container}>
+              <p className={s.text}>+7(800) 201 82-27</p>
+              <img className={s.logo} src={Logo} alt={"logo"} />
+            </div>
             <div className={s.nav}>
               <Link to={"/"}>Главная</Link>
               <Link to={`/town?town=${props.town}`}>Яхты</Link>
