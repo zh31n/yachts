@@ -11,6 +11,18 @@ const PartySea = props => {
   const town = useQuery("town");
 
   const [info, setInfo] = useState({});
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+
+    const sendEmail = () => {
+        api.sendMailWithOutYacht(name, phone).then(res => {
+            if (res.data.status) {
+                setPhone("");
+                setName("");
+                alert("Успешно");
+            }
+        });
+    };
 
   useEffect(() => {
     api.getService(town, "Организация праздника в море").then(res => {
@@ -43,6 +55,7 @@ const PartySea = props => {
             >
               {info.des}
             </p>
+            <img src={info.imageUrl} />
           </div>
         </div>
       </div>

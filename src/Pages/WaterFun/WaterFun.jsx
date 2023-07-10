@@ -24,7 +24,7 @@ const WaterFun = props => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Водные развлечения в {town}</h3>
+            <h3 className={s.title}>Водные развлечения в городе {town}</h3>
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@ const WaterFun = props => {
             >
               {info.des}
             </p>
+            <img src={info.imageUrl} />
           </div>
         </div>
       </div>

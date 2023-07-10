@@ -27,6 +27,14 @@ const api = {
   getService(town, service) {
     return instance.get(`services?town=${town}&name=${service}`);
   },
+  filteredYachts(maxPass, maxPrice, minPrice, minPass, type, town) {
+    return instance.get(
+      `yachts/filter?maxPrice=${maxPrice}&minPrice=${minPrice}&maxPass=${maxPass}&minPass=${minPass}&type=${type}&town=${town}`
+    );
+  },
+  getCatering(town) {
+    return instance.get(`/services/catering?town=${town}`);
+  },
 };
 
 export default api;
