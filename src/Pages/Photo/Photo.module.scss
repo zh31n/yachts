@@ -94,8 +94,9 @@
 }
 
 @media (max-width: 1100px) {
-  .search {
-    //background: url("./src/assets/foto2.jpg");
+  .search{
+    background-size: cover;
+    background-position: center center;
     height: 750px;
   }
   .search_i {
