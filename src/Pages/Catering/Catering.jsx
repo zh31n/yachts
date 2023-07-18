@@ -37,7 +37,7 @@ const Catering = () => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Кейтеринг в городе {town}</h3>
+            <h3 className={s.title}>Кейтеринг в городе <span className='cityUp'>{town}</span></h3>
             <div className={s.inp_cos}>
               <BigWhiteInp
                 place={"Укажите имя"}

@@ -36,7 +36,7 @@ const Fishing = props => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Рыбалка на яхте в городе {town}</h3>
+            <h3 className={s.title}>Рыбалка на яхте в городе <span className='cityUp'>{town}</span></h3>
             <div className={s.inp_cos}>
               <BigWhiteInp
                 place={"Укажите имя"}

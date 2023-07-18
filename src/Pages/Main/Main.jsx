@@ -32,9 +32,7 @@ const Main = props => {
 
   const [town, setTown] = useState("");
 
-  const garantItems = data.map(i => (
-    <GarantItem txt={i.txt} num={i.num} title={i.title} />
-  ));
+  const garantItems = data.map(i => (<GarantItem txt={i.txt} num={i.num} title={i.title} />));
 
   return (
     <>

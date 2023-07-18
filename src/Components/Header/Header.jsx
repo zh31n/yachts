@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "./Header.module.css";
+import s from "./Header.module.scss";
 import Logo from "../../assets/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import Tel from "../../assets/tel_icon.svg";
@@ -13,10 +13,10 @@ const Header = props => {
         <div className={"container"}>
           <div className={s.h_i}>
             <div className={s.container}>
-              <p className={s.text}>+7(800) 201 82-27</p>
-              <NavLink to={"/"}>
-                <img className={s.logo} src={Logo} alt={"logo"} />
-              </NavLink>
+              <a href={"tel:+78002018227"} className={s.text}>
+                +7(800) 201 82-27
+              </a>
+              <img className={s.logo} src={Logo} alt={"logo"} />
             </div>
             <div className={s.nav}>
               <Link to={"/"}>Главная</Link>
@@ -37,7 +37,7 @@ const Header = props => {
                 src={Tel}
                 alt="telephone icon"
               />
-              <span>+7(800) 201 82-27</span>
+              <a href={"tel:+78002018227"}>+7(800) 201 82-27</a>
             </div>
             <div
               className={s.navM}
