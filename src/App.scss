@@ -56,3 +56,9 @@ a {
 *::-webkit-scrollbar-thumb:active {
     background-color: #62A34B;
 }
+.cityUp{
+    display: inline-block;
+    &:first-letter{
+        text-transform: uppercase;
+    }
+}

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import Main from "./Pages/Main/Main.jsx";
 import TownPage from "./Pages/TownPage/TownPage";
