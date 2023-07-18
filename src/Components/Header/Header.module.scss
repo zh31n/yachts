@@ -77,13 +77,21 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  span {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  a {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }
 
-.cont span {
-  color: black;
-  font-size: 24px;
-  font-weight: 600;
-}
+
 .navM {
   height: 30px;
   width: 45px;
@@ -92,6 +100,7 @@
   justify-content: space-between;
   padding-right: 5px;
 }
+
 .navM span {
   width: 100%;
   height: 4px;
