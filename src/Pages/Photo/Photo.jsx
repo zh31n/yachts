@@ -25,8 +25,9 @@ const Photo = props => {
   };
 
   useEffect(() => {
-    api.getService(town, "Водные развлечения").then(res => {
+    api.getService(town, "Фотосессия").then(res => {
       setInfo(res.data);
+      console.log(res.data);
     });
   }, []);
 

@@ -92,20 +92,20 @@ const Filter = ({
             return <option>{el}</option>;
           })}
         </select>
-        <button className={styles.button} onClick={handleClick}>
-          Применить
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            api.AllYachts(town).then(data => {
-              setYachtsArray(data.data);
-            });
-          }}
-        >
-          Сбросить
-        </button>
       </div>
+      <button className={styles.button} onClick={handleClick}>
+        Применить
+      </button>
+      <button
+        className={styles.button}
+        onClick={() => {
+          api.AllYachts(town).then(data => {
+            setYachtsArray(data.data);
+          });
+        }}
+      >
+        Сбросить
+      </button>
     </div>
   );
 };

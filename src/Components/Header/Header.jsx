@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import s from "./Header.module.css";
 import Logo from "../../assets/logo.svg";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Tel from "../../assets/tel_icon.svg";
 
 const Header = props => {
@@ -14,7 +14,9 @@ const Header = props => {
           <div className={s.h_i}>
             <div className={s.container}>
               <p className={s.text}>+7(800) 201 82-27</p>
-              <img className={s.logo} src={Logo} alt={"logo"} />
+              <NavLink to={"/"}>
+                <img className={s.logo} src={Logo} alt={"logo"} />
+              </NavLink>
             </div>
             <div className={s.nav}>
               <Link to={"/"}>Главная</Link>
