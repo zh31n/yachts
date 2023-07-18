@@ -13,7 +13,7 @@ const Header = props => {
         <div className={"container"}>
           <div className={s.h_i}>
             <div className={s.container}>
-              <a href={'+78002018227'} className={s.text}>+7(800) 201 82-27</a>
+              <a href={'tel:+78002018227'} className={s.text}>+7(800) 201 82-27</a>
               <img className={s.logo} src={Logo} alt={"logo"} />
             </div>
             <div className={s.nav}>
