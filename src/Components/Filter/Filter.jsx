@@ -19,18 +19,50 @@ const Filter = ({
 }) => {
   const [type, setType] = useState([]);
   useEffect(() => {
+    setType([]);
     yachts.map(function (el, index) {
       setType(data => [...data, el.spec.class]);
     });
   }, []);
 
   const handleClick = () => {
-    api
-      .filteredYachts(maxPass, maxPrice, minPrice, minPass, currentType, town)
-      .then(data => {
-        console.log(data.data);
-        setYachtsArray(data.data);
+    if ((maxPrice == "") & (maxPass == "")) {
+      const newArr = yachts.filter(el => el.spec.class == currentType);
+
+      setYachtsArray(newArr);
+    } else if (maxPrice == "") {
+      let newArr = [];
+      yachts.map(el => {
+        if (el.spec.class == currentType) {
+          if (Number(el.spec.passenger_capacity) * -1 > Number(maxPass) * -1) {
+            newArr.push(el);
+          }
+        }
       });
+
+      setYachtsArray(newArr);
+    } else if (maxPass == "") {
+      let newArr = [];
+      yachts.map(el => {
+        if (el.spec.class == currentType) {
+          if (Number(el.spec.price) >= Number(maxPrice)) {
+            newArr.push(el);
+          }
+        }
+      });
+      setYachtsArray(newArr);
+    } else {
+      api
+        .filteredYachts(maxPass, maxPrice, minPrice, minPass, currentType, town)
+        .then(data => {
+          console.log(data.data);
+          setYachtsArray(data.data);
+        });
+    }
+    setMaxPass("");
+    setMaxPrice("");
+    setMinPass("");
+    setMinPrice("");
   };
 
   return (

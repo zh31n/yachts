@@ -7,7 +7,7 @@ const YachtCard = ({ img, model, name, des, id, price }) => {
     <NavLink to={`/yacht/${id}`}>
       <div className={styles.main_container}>
         <div className={styles.image_container}>
-          <img className={styles.img} src={img[0]} />
+          <img className={styles.img} src={img} />
         </div>
         <div className={styles.model_container}>
           <p className={styles.model_text}>{model}</p>
@@ -17,7 +17,7 @@ const YachtCard = ({ img, model, name, des, id, price }) => {
           <p>{des}</p>
         </div>
         <div className={styles.price_container}>
-          <p>{price} руб/час</p>
+          <p className={styles.name_text}>{price} руб/час</p>
         </div>
       </div>
     </NavLink>

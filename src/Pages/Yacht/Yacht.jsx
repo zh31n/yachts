@@ -73,7 +73,7 @@ const Yacht = props => {
               </div> */}
               <div className={s.photo_container}>
                 <Carucel>
-                  {yacht.image[0].map(function (el, index) {
+                  {yacht.image.map(function (el, index) {
                     return (
                       <img
                         src={el}
@@ -86,7 +86,7 @@ const Yacht = props => {
                 </Carucel>
                 <div className={s.form}>
                   <p className={s.form_text}>Запоните поля ниже</p>
-                  <p className={s.main_text}>Оставить заявку</p>
+                  <p className={s.main_text}>Аренда яхты</p>
                   <input
                     className={s.input}
                     value={name}

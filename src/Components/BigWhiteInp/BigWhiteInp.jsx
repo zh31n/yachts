@@ -10,6 +10,12 @@ const BigWhiteInp = props => {
         value={props.value}
         onChange={e => {
           props.setTown(e.target.value);
+          if (props.setActive) {
+            props.setActive(true);
+          }
+          if (e.target.value == "") {
+            props.setActive(false);
+          }
         }}
       />
     </div>

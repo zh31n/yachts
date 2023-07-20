@@ -37,6 +37,27 @@
   gap: 40px;
 }
 
+.show_more_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  button {
+    cursor: pointer;
+    width: 238px;
+    height: 101px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #012d32;
+    margin-top: 71px;
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+}
+
 @media (max-width: 1100px) {
   .text {
     font-size: 35px;

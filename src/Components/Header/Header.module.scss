@@ -54,7 +54,7 @@
   border-radius: 0 0 12px 12px;
   margin-left: 37%;
   font-size: 20px;
-  a{
+  a {
     text-align: center;
   }
 }
@@ -93,7 +93,6 @@
     font-weight: 600;
   }
 }
-
 
 .navM {
   height: 30px;
@@ -143,12 +142,13 @@
   }
   .text {
     display: block;
+    font-size: 14px;
   }
   .container {
     display: flex;
-    width: 100%;
+    width: 58%;
+    justify-content: space-between;
     align-items: center;
-    gap: 30px;
   }
   .nav {
     display: none;

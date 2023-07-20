@@ -1,0 +1,59 @@
+.container {
+  width: 650px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .iamge {
+    position: absolute;
+    width: 650px;
+    z-index: 11;
+    height: 400px;
+  }
+  .main_text {
+    margin-top: 130px;
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 27px;
+    position: relative;
+    z-index: 12;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .text {
+    width: 500px;
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    z-index: 12;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    width: 350px;
+    height: 220px;
+    margin-bottom: 40px;
+    .iamge {
+      width: 350px;
+      height: 220px;
+    }
+    .main_text {
+      font-size: 20px;
+      margin-top: 0;
+    }
+
+    .text {
+      font-size: 13px;
+      width: 320px;
+    }
+  }
+}

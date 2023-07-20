@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "./Main.module.scss";
 import BigWhiteInp from "../../Components/BigWhiteInp/BigWhiteInp.jsx";
 import GarantItem from "../../Components/GarantItem/GarantItem.jsx";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import Footer from "../../Components/Footer/Footer";
+import api from "../../api";
 
 const Main = props => {
   const data = [
@@ -31,8 +32,34 @@ const Main = props => {
   ];
 
   const [town, setTown] = useState("");
+  const [country, setCountry] = useState("");
 
-  const garantItems = data.map(i => (<GarantItem txt={i.txt} num={i.num} title={i.title} />));
+  const [townArrTown, setTownArrTown] = useState([]);
+  const [townArrCountry, setTownArrCountry] = useState([]);
+
+  const [visCountry, setVisCountry] = useState(false);
+  const [visTown, setVisTown] = useState(false);
+
+  const garantItems = data.map(i => (
+    <GarantItem txt={i.txt} num={i.num} title={i.title} />
+  ));
+
+  const filterTown = townArrTown.filter(el => {
+    return el.toLowerCase().includes(town.toLowerCase());
+  });
+
+  const filterCountry = townArrCountry.filter(el => {
+    return el.country.toLowerCase().includes(country.toLowerCase());
+  });
+
+  useEffect(() => {
+    api.getAllTown().then(res => {
+      setTownArrTown([]);
+      setTownArrCountry([]);
+      res.data.map(el => setTownArrTown(prev => [...prev, el.name]));
+      res.data.map(el => setTownArrCountry(prev => [...prev, el]));
+    });
+  }, []);
 
   return (
     <>
@@ -45,13 +72,59 @@ const Main = props => {
             </h3>
             <h3 className={s.sup}>Широкий выбор яхт для любых потребностей</h3>
             <div className={s.inp_cos}>
-              <BigWhiteInp place={"Укажите страну"} />
-              <BigWhiteInp
-                place={"Укажите город"}
-                value={town}
-                setTown={setTown}
-              />
-              <NavLink to={`/town?town=${town.toLowerCase()}`}>
+              <div>
+                <BigWhiteInp
+                  place={"Укажите страну"}
+                  value={country}
+                  setTown={setCountry}
+                  setActive={setVisCountry}
+                />
+                {visCountry && (
+                  <div
+                    className={s.add_container}
+                    onClick={() => {
+                      console.log(filterCountry);
+                    }}
+                  >
+                    {filterCountry.map(el => (
+                      <p
+                        onClick={() => {
+                          setCountry(el.country);
+                          setVisCountry(false);
+                        }}
+                      >
+                        {el.country}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div>
+                <BigWhiteInp
+                  place={"Укажите город"}
+                  value={town}
+                  setTown={setTown}
+                  setActive={setVisTown}
+                />
+                {visTown && (
+                  <div className={s.add_container}>
+                    {filterTown.map(el => (
+                      <span
+                        className={"cityUp"}
+                        onClick={() => {
+                          setTown(el);
+                          setVisTown(false);
+                        }}
+                      >
+                        {el}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <NavLink
+                to={country == "" ? "" : `/town?town=${town.toLowerCase()}`}
+              >
                 <button className={s.bigBtn}>Найти</button>
               </NavLink>
             </div>

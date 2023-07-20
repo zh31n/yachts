@@ -2,6 +2,7 @@ import React, { Children, cloneElement, useEffect, useState } from "react";
 import styles from "./Carucel.module.scss";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import arrow from "../../../assets/arrow.png";
 
 const PAGE_WIDTH = 600;
 
@@ -53,28 +54,36 @@ const Carucel = ({ children, lenght }) => {
   return (
     <div className={styles.main_container}>
       <div className={styles.arrow_mobile}>
-        <KeyboardArrowLeftIcon
+        <img
+          src={arrow}
           onClick={handleLeft}
-          sx={{
+          style={{
             color: "#333",
-            fontSize: 30,
-            marginTop: "-30px",
             cursor: "pointer",
-            transform: "rotate(90deg)",
+            position: "absolute",
+            marginLeft: "-30px",
+            width: "60px",
+            height: "60px",
+            marginTop: "-15px",
+            transform: "rotate(180deg)",
           }}
         />
       </div>
       <div className={styles.arrow}>
-        <KeyboardArrowLeftIcon
+        <img
+          src={arrow}
           onClick={handleLeft}
-          sx={{
-            position: "absolute",
+          style={{
+            zIndex: "1",
             color: "#333",
-            fontSize: 30,
-            marginLeft: "-30px",
             cursor: "pointer",
+            position: "absolute",
+            marginTop: "-15px",
+            marginLeft: "-55px",
+            width: "80px",
+            height: "80px",
+            transform: "rotate(180deg)",
           }}
-          className={styles.arrow}
         />
       </div>
       <div className={styles.window}>
@@ -86,26 +95,32 @@ const Carucel = ({ children, lenght }) => {
         </div>
       </div>
       <div className={styles.arrow_mobile}>
-        <KeyboardArrowRightIcon
+        <img
+          src={arrow}
           onClick={handleRight}
-          sx={{
+          style={{
             color: "#333",
-            marginTop: "300px",
-            fontSize: 30,
             cursor: "pointer",
-            transform: "rotate(90deg)",
+            position: "absolute",
+            marginLeft: "320px",
+            width: "60px",
+            height: "60px",
+            marginTop: "-15px",
           }}
         />
       </div>
       <div className={styles.arrow}>
-        <KeyboardArrowRightIcon
+        <img
+          src={arrow}
           onClick={handleRight}
-          sx={{
-            position: "absolute",
+          style={{
+            marginTop: "-15px",
             color: "#333",
-            fontSize: 30,
-            marginLeft: "600px",
             cursor: "pointer",
+            position: "absolute",
+            marginLeft: "570px",
+            width: "80px",
+            height: "80px",
           }}
         />
       </div>

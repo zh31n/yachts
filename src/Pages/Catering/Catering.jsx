@@ -11,9 +11,11 @@ import Carucel from "./Carucel/Carucel.jsx";
 const Catering = () => {
   const town = useQuery("town");
 
+  const screenWidth = window.screen.width;
+
   const [info, setInfo] = useState([]);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+");
 
   const sendEmail = () => {
     api.sendMailWithOutYacht(name, phone).then(res => {
@@ -37,7 +39,9 @@ const Catering = () => {
       <div className={s.search}>
         <div className="container">
           <div className={s.search_i}>
-            <h3 className={s.title}>Кейтеринг в городе <span className='cityUp'>{town}</span></h3>
+            <h3 className={s.title}>
+              Кейтеринг в городе <span className="cityUp">{town}</span>
+            </h3>
             <div className={s.inp_cos}>
               <BigWhiteInp
                 place={"Укажите имя"}
@@ -65,10 +69,25 @@ const Catering = () => {
                   <h3 className={s.title}>{el.title}</h3>
                 </div>
                 <Carucel>
-                  {el.image.map(function (el) {
-                    console.log(el.urlfile);
-                    return <img src={el.urlfile} />;
-                  })}
+                  {el.image.map(el => (
+                    <img
+                      src={el.urlfile}
+                      className={s.image}
+                      style={
+                        screenWidth > 1000
+                          ? {
+                              minWidth: "1200px",
+                              width: "1200px",
+                              height: "100%",
+                            }
+                          : {
+                              minWidth: "350px",
+                              width: "350px",
+                              height: "100%",
+                            }
+                      }
+                    />
+                  ))}
                 </Carucel>
                 <p
                   style={{

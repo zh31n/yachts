@@ -88,7 +88,7 @@
   }
   .des_text {
     color: #000;
-    font-size: 24px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -117,7 +117,7 @@
 .container_info {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 40%;
   gap: 15px;
   div {
     display: flex;
@@ -126,7 +126,7 @@
     justify-content: space-between;
     p {
       color: #000;
-      font-size: 24px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 500;
     }
@@ -149,7 +149,7 @@
       font-size: 30px;
     }
     .des_text {
-      font-size: 17px;
+      font-size: 15px;
     }
   }
 
@@ -162,7 +162,7 @@
     gap: 30px;
     div {
       p {
-        font-size: 17px;
+        font-size: 15px;
       }
     }
   }

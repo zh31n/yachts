@@ -12,6 +12,9 @@ const api = {
   getAbout(town) {
     return instance.get(`about?town=${town}`);
   },
+  getAllTown() {
+    return instance.get("town");
+  },
   getYachtInfo(id) {
     return instance.get(`yachts/id?id=${id}`);
   },

@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <pre className="">© 2014 - 2023  Sochi Charter</pre>
+      <div className="">«2014-2023	©	«Top	Yacht	Rent»	- сервис	по	аренде	яхт.	Все	права защищены»</div>
     </div>
   );
 };

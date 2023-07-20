@@ -84,6 +84,26 @@
   }
 }
 
+.add_container {
+  position: absolute;
+  background-color: white;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  span {
+    cursor: pointer;
+  }
+
+  p {
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 1100px) {
   .search {
     background-size: cover;
