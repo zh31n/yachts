@@ -13,6 +13,7 @@ const Yachts = ({ town, setFail }) => {
   const [maxPass, setMaxPass] = useState("");
   const [currentType, setCurrentType] = useState("");
   const [yachts, setYachts] = useState([]);
+  const [filteredYachts, setFilteredYachts] = useState([]);
 
   const [vis, setVis] = useState(false);
 
@@ -28,6 +29,7 @@ const Yachts = ({ town, setFail }) => {
             setVis(true);
           }
           setYachts(data.data);
+          setFilteredYachts(data.data)
           if (yachts == "Яхты не найдены") {
             console.log("YYYYESSSSS");
           }
@@ -56,7 +58,7 @@ const Yachts = ({ town, setFail }) => {
                 console.log(filteredYachts, yachts);
               }}
             >
-              Найдено: {yachts.length}
+              Найдено: {filteredYachts.length}
             </p>
           </div>
           <div>
@@ -80,13 +82,14 @@ const Yachts = ({ town, setFail }) => {
                 yachts={yachts}
                 setYachtsArray={setYachts}
                 town={town}
+                setFilteredYachts={setFilteredYachts}
               />
             )}
           </div>
         </div>
       </div>
       <div className={styles.yachts_container}>
-        {yachts.map(function (el, index) {
+        {filteredYachts.map(function (el, index) {
           if (vis == false && index < 3) {
             return (
               <YachtCard

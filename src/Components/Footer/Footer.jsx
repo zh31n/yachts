@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="">«2014-2023	©	«Top	Yacht	Rent»	- сервис	по	аренде	яхт.	Все	права защищены»</div>
+      <div className="">2014-2023	©	«Top	Yacht	Rent»	- сервис	по	аренде	яхт. Все	права защищены</div>
     </div>
   );
 };
